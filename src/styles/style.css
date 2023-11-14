@@ -1,0 +1,265 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #E6F7F8;
+  color: #232323;
+}
+
+input, textarea {
+  padding: 8px 12px;
+  font-family: 'Poppins', sans-serif;
+  border-radius: 4px;
+  display: block;
+  width: 100%;
+  background-color: #F5F5F5;
+  outline: none;
+  border: 1px solid #00B1B5;
+  resize: none;
+}
+
+input::placeholder, textarea::placeholder {
+  color: #aaa;
+}
+
+input:focus, textarea:focus {
+  border: 2px solid #C800A5;
+}
+
+.note-app__header {
+  padding: 16px;
+  background-color: #00B1B5;
+}
+
+.note-app__header h1 {
+  font-size: 24px;
+  line-height: 24px;
+  flex: 1;
+  color: #F5F5F5;
+}
+
+.note-app__body {
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  padding: 40px;
+  height: calc(100vh - 56px);
+}
+
+.note-input {
+  margin: 0 auto;
+}
+
+.note-input__title {
+  font-weight: bold;
+  color: #C800A5;
+  border-bottom: 1px solid #C800A5;
+  margin-bottom: 32px;
+}
+
+.note-input__title__char-limit {
+  font-size: 14px;
+  text-align: right;
+  color: #aaa;
+}
+
+.note-input__body {
+  min-height: 175px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.note-input button {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  background-color: #00B1B5;
+  font-family: 'Poppins', sans-serif;
+  color: #F5F5F5;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.notes-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+}
+
+.notes-tab {
+  display: flex;
+  background-color: #F5F5F5;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.06);
+}
+
+.notes-tab__item {
+  flex: 1;
+  color: #00B1B5;;
+  font-weight: 600;
+  font-size: 18px;
+  text-align: center;
+  cursor: pointer;
+  height: 100%;
+  padding: 8px;
+}
+
+.notes-tab__item-active {
+  color: #C800A5;
+  border-bottom: 4px solid #C800A5;
+}
+
+.notes-list__container {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.notes-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: minmax(min-content, max-content);
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.notes-list__empty-message {
+  margin: 24px 0px;
+  text-align: center;
+  color: #aaa;
+}
+
+.note-item {
+  background-color: #F5F5F5;
+  box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.06);
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.note-item__content {
+  padding: 12px;
+}
+
+.note-item__title {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  margin-bottom: 4px;
+}
+
+.note-item__date {
+  font-size: 12px;
+  margin-bottom: 8px;
+  color: #aaa;
+}
+
+.note-item__body {
+  font-size: 14px;
+  word-break: break-word;
+}
+
+.note-item__action {
+  display: flex;
+}
+
+.note-item__delete-button,.note-item__archive-button {
+  display: block;
+  width: 100%;
+  background-color: transparent;
+  border: 0;
+  margin: 4px 8px;
+  padding: 8px 0;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.note-item__delete-button {
+  color: #C800A5;
+}
+
+.note-item__archive-button {
+  color: #00B1B5;
+}
+
+.note-item__archive-button:hover, .note-item__delete-button:hover {
+  background-color: #c7bebe;
+  border-radius: 8px;
+}
+
+@media only screen and (min-width: 500px) {
+  .notes-list {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media only screen and (min-width: 800px) {
+  .notes-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .note-input {
+    flex: 1;
+    min-width: 360px;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .notes-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .note-input {
+    min-width: 400px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .notes-list {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .note-input {
+    min-width: 500px;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .note-app__body {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    padding: 24px;
+  }
+
+  .note-input {
+    width: 100%;
+  }
+}
+
+/* Custom Styling for Toast */
+.Toastify__toast-theme--colored.Toastify__toast--success {
+  background-color: #00B1B5;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+}
+
+.Toastify__toast-theme--colored.Toastify__toast--error {
+  background-color: #C800A5;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+}
